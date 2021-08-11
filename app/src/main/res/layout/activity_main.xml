@@ -6,46 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/lvWeather"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="340dp"
-        android:text="Your weather Details"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
 
     <TextView
-        android:id="@+id/lvOutput"
+        android:id="@+id/txtOutput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="35dp"
         android:text="Your City ID"
-        app:layout_constraintStart_toStartOf="@+id/btnGetID"
-        app:layout_constraintTop_toBottomOf="@+id/btnGetID" />
+        app:layout_constraintBottom_toTopOf="@+id/btnTemp"
+        app:layout_constraintEnd_toEndOf="@+id/btnTemp" />
 
     <Button
         android:id="@+id/btnGetID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="33dp"
         android:onClick="GetID"
         android:text="GetID"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txtCity"
         app:layout_constraintTop_toBottomOf="@+id/txtCity" />
 
     <EditText
         android:id="@+id/txtCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="43dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="72dp"
         android:ems="10"
         android:hint="City Name"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,9 +45,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="53dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="87dp"
+        android:layout_marginBottom="239dp"
         android:text="Search ID"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,11 +57,35 @@
         android:id="@+id/btnTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="42dp"
-        android:text="Get Temps"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="95dp"
         android:onClick="GetTemps"
-        app:layout_constraintBottom_toTopOf="@+id/lvWeather"
-        app:layout_constraintStart_toStartOf="@+id/lvWeather" />
+        android:text="Get Temps"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGetID" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/lvOutput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
