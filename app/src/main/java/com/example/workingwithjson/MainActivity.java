@@ -3,6 +3,7 @@ package com.example.workingwithjson;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         String url ="https://www.metaweather.com/api/location/search/?query="+editText.getText().toString();
 
-
+        String strKey =  getString(R.string.key);
 
 
 
@@ -128,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                                 WeatherList.add(OnedayObject);
                                 iSize++;
                             }
-                            textView.setText(WeatherList.get(1).toString());
+                           // textView.setText(WeatherList.get(1).toString());
                             String[] strOutput= new String[iSize];
                             for ( int x=0;x<iSize ;x++)
                             {
