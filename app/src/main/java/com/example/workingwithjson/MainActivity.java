@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
+       // RequestQueue queue = Volley.newRequestQueue(this);
         String url ="https://www.metaweather.com/api/location/search/?query="+editText.getText().toString();
 
         String strKey =  getString(R.string.key);
@@ -79,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        queue.add(request);
+       // queue.add(request);
+        MySingleton.getInstance(this).addToRequestQueue(request);
 
     }
 
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView textView = (TextView) findViewById(R.id.txtOutput);
         final ListView lv = (ListView) findViewById(R.id.lvOutput);
 // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
+       // RequestQueue queue = Volley.newRequestQueue(this);
         String url ="https://www.metaweather.com/api/location/"+cityID;
 
         Log.i("Test","Button pressed");
@@ -154,8 +155,8 @@ public class MainActivity extends AppCompatActivity {
                 }
         });
 
-
-        queue.add(request);
+        MySingleton.getInstance(this).addToRequestQueue(request);
+        //queue.add(request);
 
     }
 }
